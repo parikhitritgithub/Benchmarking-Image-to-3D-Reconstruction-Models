@@ -320,3 +320,29 @@ This benchmarking framework can be used for:
 * Performance analysis of GPU-based inference pipelines
 
 ---
+
+# Conclusion
+
+This project presented a benchmarking framework for evaluating **Image-to-3D reconstruction models**, specifically comparing **TripoSR** and **Shap-E** within a GPU-accelerated environment.
+
+The experimental analysis considered several key metrics, including **mesh complexity (vertices and faces), surface area, file size, Chamfer Distance, and inference time**. These metrics provide insight into both the **quality of the generated 3D meshes and the computational efficiency of each model**.
+
+From the experimental results, several important observations were made:
+
+* **TripoSR demonstrated significantly faster inference performance**, with an average runtime of approximately **13.53 seconds per object**.
+* **Shap-E required an average of about 35.03 seconds per object**, making it roughly **2.6× slower than TripoSR** in the tested environment.
+* TripoSR produced meshes with **higher geometric complexity**, reflected in larger vertex and face counts.
+* Shap-E generated comparatively **lighter mesh structures**, resulting in smaller file sizes but sometimes reduced geometric detail.
+* Chamfer Distance evaluation provided a quantitative measure of geometric similarity between the generated meshes.
+
+Overall, the benchmarking results indicate that **TripoSR is highly suitable for fast and efficient single-image 3D reconstruction**, particularly in applications requiring **interactive performance or real-time generation**.
+
+In contrast, **Shap-E focuses more on generative modeling and flexibility**, making it useful for scenarios where **generation diversity is more important than inference speed**.
+
+This benchmarking framework provides a practical foundation for evaluating emerging **image-to-3D and generative 3D models**, and it can be extended to include additional models and evaluation metrics in future research.
+
+Future work may include integrating more advanced evaluation techniques such as **F-score for point cloud similarity, mesh intersection-over-union (IoU), texture quality assessment, and GPU memory utilization analysis**. Additionally, the framework can be expanded to benchmark newer generative 3D systems such as **DreamFusion, Magic3D, and other diffusion-based 3D reconstruction models**.
+
+Overall, this project contributes a structured and reproducible pipeline for **quantitative benchmarking of modern 3D reconstruction models**, helping researchers and developers better understand the trade-offs between **generation quality, mesh complexity, and computational efficiency**.
+
+----
