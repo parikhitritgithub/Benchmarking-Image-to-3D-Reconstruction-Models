@@ -192,28 +192,71 @@ Pipeline workflow:
 7. Visualization plots are generated.
 
 ---
+## Inference Time Benchmark
 
-# Inference Time Results
-
-The inference latency was measured for several generated objects.
-
-| Object   | Inference Time (seconds) | Inference Time (ms) |
-| -------- | ------------------------ | ------------------- |
-| Iron Man | 34.6787                  | 34678.76            |
-| Human    | 35.1744                  | 35174.41            |
-| Penguin  | 35.3512                  | 35351.25            |
-| Star     | 34.3891                  | 34389.11            |
-| Robot    | 35.5813                  | 35581.37            |
-
-Average inference time:
-
-* **~35 seconds per object**
-* **~35,000 ms per object**
-
-This indicates stable GPU performance across different input objects.
+To evaluate performance, we measured the **inference latency of TripoSR and Shap-E** in a GPU-accelerated environment.
+Inference time was recorded in both **milliseconds (ms)** and **seconds (s)**.
 
 ---
 
+# TripoSR Inference Time
+
+The TripoSR model was executed multiple times to measure stable runtime performance.
+
+| Run | Time (ms) | Time (s) |
+| --- | --------- | -------- |
+| 1   | 13221.39  | 13.22    |
+| 2   | 12873.53  | 12.87    |
+| 3   | 14877.70  | 14.88    |
+| 4   | 14984.51  | 14.98    |
+| 5   | 13366.16  | 13.37    |
+| 6   | 14191.75  | 14.19    |
+| 7   | 13213.71  | 13.21    |
+| 8   | 13024.33  | 13.02    |
+| 9   | 13949.23  | 13.95    |
+| 10  | 12610.01  | 12.61    |
+| 11  | 12534.31  | 12.53    |
+
+### Average TripoSR Inference Time
+
+* **13.53 seconds**
+* **13,530 ms**
+
+---
+
+# Shap-E Inference Time
+
+The Shap-E model inference was measured across multiple input objects.
+
+| Object   | Time (s) | Time (ms) |
+| -------- | -------- | --------- |
+| Iron Man | 34.67    | 34678.76  |
+| Human    | 35.17    | 35174.41  |
+| Penguin  | 35.35    | 35351.25  |
+| Star     | 34.38    | 34389.11  |
+| Robot    | 35.58    | 35581.37  |
+
+### Average Shap-E Inference Time
+
+* **35.03 seconds**
+* **35,035 ms**
+
+---
+
+# Model Performance Comparison
+
+| Model       | Average Inference Time (s) | Average Inference Time (ms) |
+| ----------- | -------------------------- | --------------------------- |
+| **TripoSR** | **13.53**                  | **13,530**                  |
+| **Shap-E**  | **35.03**                  | **35,035**                  |
+
+### Key Observation
+
+* **TripoSR is approximately 2.6× faster than Shap-E**
+* TripoSR is optimized for **fast single-image 3D reconstruction**
+* Shap-E focuses more on **generative modeling quality and diversity**
+
+---
 # Output Files
 
 The benchmarking script generates:

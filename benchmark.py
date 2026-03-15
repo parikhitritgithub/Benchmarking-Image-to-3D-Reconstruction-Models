@@ -128,7 +128,7 @@ plt.ylabel("Surface Area")
 plt.savefig("surface_area_comparison.png")
 
 
-# File Size Plot
+# File Size Plot*
 plt.figure()
 plt.bar(models, avg_size)
 plt.title("File Size Comparison")
